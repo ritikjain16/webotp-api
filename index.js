@@ -14,9 +14,10 @@ app.use(express.json());
 // app.use(bodyParser.json());
 
 app.post("/sendsms", async (req, res) => {
+  let otp = Math.floor(Math.random() * 999999 + 100000);
   client.messages
     .create({
-      body: "Here is your OTP 160820\n@webotp16.netlify.app #160820 ",
+      body: "Here is your OTP 160820\n@webotp16.netlify.app #" + otp,
       from: `${process.env.PHONE}`,
       to: req.body.num,
     })
