@@ -17,7 +17,7 @@ app.post("/sendsms", async (req, res) => {
   let otp = Math.floor(Math.random() * 999999 + 100000);
   client.messages
     .create({
-      body: "Here is your OTP 160820\n@webotp16.netlify.app #" + otp,
+      body: `Here is your OTP ${otp}\n@webotp16.netlify.app #${otp}`,
       from: `${process.env.PHONE}`,
       to: req.body.num,
     })
